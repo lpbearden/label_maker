@@ -18,12 +18,10 @@ for file in os.listdir('classes'):
                         student_name = row[0].split()[1] + ' ' + row[0].split()[0][0] + '.'
                     class_list.append(student_name)
             classes[teacher_name] = class_list
-# print(classes['Mrs. Evans'])
 
 with open('test_run.csv', mode='w') as test_run:
     test_writer = csv.writer(test_run, delimiter=',', quotechar='"')
     for teacher in classes:
-        # for student in classes[teacher]:
         grade = GRADE_MAP[teacher] + ' Grade'
         for i in range(0, len(classes[teacher]), 4):
             print('index', i, 'list size', len(classes[teacher]))
