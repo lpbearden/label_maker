@@ -1,0 +1,3 @@
+constants.py
+*.csv
+__pycache__/*
