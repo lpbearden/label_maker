@@ -23,27 +23,28 @@ with open('test_run.csv', mode='w') as test_run:
     test_writer = csv.writer(test_run, delimiter=',', quotechar='"')
     for teacher in classes:
         grade = GRADE_MAP[teacher] + ' Grade'
+        print (teacher)
         for i in range(0, len(classes[teacher]), 4):
             print('index', i, 'list size', len(classes[teacher]))
-            if len(classes[teacher]) > i+3:
+            if len(classes[teacher]) - 1 >= i+3:
                 test_writer.writerow([classes[teacher][i], classes[teacher][i+1], classes[teacher][i+2], classes[teacher][i+3]])
                 test_writer.writerow([teacher, teacher, teacher, teacher])
                 test_writer.writerow([grade, grade, grade, grade])
                 test_writer.writerow([''])
 
-            elif len(classes[teacher]) > i+2:
+            elif len(classes[teacher]) - 1 >= i+2:
                 test_writer.writerow([classes[teacher][i], classes[teacher][i+1], classes[teacher][i+2]])
                 test_writer.writerow([teacher, teacher, teacher])
                 test_writer.writerow([grade, grade, grade])
                 test_writer.writerow([''])
 
-            elif len(classes[teacher]) > i+1:
+            elif len(classes[teacher]) - 1 >= i+1:
                 test_writer.writerow([classes[teacher][i], classes[teacher][i+1]])
                 test_writer.writerow([teacher, teacher])
                 test_writer.writerow([grade, grade])
                 test_writer.writerow([''])
 
-            elif len(classes[teacher]) == i:
+            elif len(classes[teacher]) - 1 >= i:
                 test_writer.writerow([classes[teacher][i]])
                 test_writer.writerow([teacher])
                 test_writer.writerow([grade])
